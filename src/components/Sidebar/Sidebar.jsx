@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
+  const { list } = useSelector(({ categories }) => categories);
 
-  const { list } = useSelector(({categories}) => categories);
+  const uniqueCategories = Array.from(new Set(list.map(category => category.name)))
+    .map(name => list.find(category => category.name === name));
 
   return (
     <section className={styles.sidebar}>
@@ -14,14 +16,14 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list.map(({id, name}) => (
-          <li key={id}>
+          {uniqueCategories.map(({ id, name }) => (
+            <li key={id}>
             <NavLink 
               className={({isActive}) => `${styles.link} ${isActive ? styles.active : ""}`}
               to={`/categories/${id}`}>
               {name}
             </NavLink>
-          </li>
+            </li>
           ))}
         </ul>
       </nav>
@@ -30,7 +32,8 @@ const Sidebar = () => {
         <a 
           href={"/help"} 
           target='_blank' 
-          className={styles.link} rel="noreferrer" 
+          className={styles.link} 
+          rel="noreferrer" 
         >
           Help
         </a>
