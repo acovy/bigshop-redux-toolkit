@@ -3,7 +3,7 @@ import styles from '../../styles/Header.module.css';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import LOGO from '../../images/shop.svg';
-import AVATAR from '../../images/avatar.jpg';
+import AVATAR from '../../images/medium.jpeg';
 
 
 const Header = () => {

@@ -21,7 +21,7 @@
 }
 
 .rights a {
-  color: var(--violet);
+  color: #5a31f4;
 }
 
 .socials {
@@ -36,5 +36,5 @@
 }
 
 .socials svg:hover {
-  fill: var(--violet);
+  fill: #5a31f4;
 }
